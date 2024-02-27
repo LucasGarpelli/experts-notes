@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import {Toaster} from 'sonner'
+<link rel="shortcut icon" href="/favicon.png" type="image/png" />
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,8 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="bg-slate-900 text-slate-50 antialiased">
+      <body className={inter.className}>
+        {children}
+      <Toaster richColors/>
+      </body>
     </html>
   );
 }
