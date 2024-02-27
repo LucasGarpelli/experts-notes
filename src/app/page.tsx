@@ -1,5 +1,4 @@
 'use client'
-import Logo from '@/assets/Logo.svg'
 import NewNoteCard from '@/components/NewNoteCard';
 import NoteCard from '@/components/NoteCard';
 import { ChangeEvent, useState } from 'react';
@@ -53,7 +52,6 @@ export default function Home() {
 
   return (
     <div className='mx-auto max-w-6xl my-12 space-y-6 px-5 '>
-      <img src={Logo} alt='NLW Expert' />
       <form className='w-full '>
         <input
           type="text"
