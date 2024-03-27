@@ -1,7 +1,7 @@
 'use client'
 import NewNoteCard from '@/components/NewNoteCard';
 import NoteCard from '@/components/NoteCard';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 interface INote {
   id: string;
@@ -11,14 +11,14 @@ interface INote {
 
 export default function Home() {
   const [search, setSearch] = useState('');
-  const [notes, setNotes] = useState<INote[]>(() => {
+  const [notes, setNotes] = useState<INote[]>([]);
+
+  useEffect(() => {
     const notesOnStorage = localStorage.getItem('notes');
     if (notesOnStorage) {
-      return JSON.parse(notesOnStorage)
-
+      setNotes(JSON.parse(notesOnStorage));
     }
-    return []
-  })
+  }, []); 
   const onNoteCreated = (content: string) => {
     const newNotes = {
       id: crypto.randomUUID(),
